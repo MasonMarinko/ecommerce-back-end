@@ -8,6 +8,14 @@ router.get('/', (req, res) => {
         'id',
         'tag_name'
     ],
+    include: [
+        {
+            model: Product,
+            attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
+            through: ProductTag,
+            as: 'products'
+        },
+    ]
 })
 .then(dbTagData => res.json(dbTagData))
 .catch(err => {
