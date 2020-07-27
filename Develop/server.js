@@ -10,10 +10,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
-// turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now Listening'));
-});
+  app.listen(PORT, () => console.log('Now Listening'))
+})
 
 // // sync sequelize models to the database, then turn on the server
 // app.listen(PORT, () => {
